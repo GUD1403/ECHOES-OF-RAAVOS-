@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "EB Garamond", Georgia, serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-decorative: "Cinzel Decorative", serif;
+
+  --color-black: #020208;
+  --color-deep: #06060e;
+  --color-panel: #08081a;
+  --color-gold: #c8a84b;
+  --color-gold-b: #f2c55a;
+  --color-gold-d: #5a4a22;
+  --color-blue: #88bbee;
+  --color-text: #cdc3a0;
+  --color-text-d: #6e6650;
+  --color-white: #ede5cc;
+}
+
+:root {
+  --tp: #c8a84b;
+  --tg: rgba(200, 168, 75, 0.4);
+  --tbg: #020208;
+}
+
+body {
+  background: var(--tbg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020208;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5a4a22;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c8a84b;
+}
+
+/* Fine pointer cursor override */
+@media (pointer: fine) {
+  html, body, #root, *, *::before, *::after, input, textarea, select, button, a, canvas, iframe {
+    cursor: none !important;
+  }
+}
+
+/* Ambient Grain Overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+}
+
+/* Custom Animations */
+@keyframes goldglow {
+  0%, 100% {
+    text-shadow: 0 0 50px rgba(242, 197, 90, 0.6), 0 0 100px rgba(242, 197, 90, 0.26);
+  }
+  50% {
+    text-shadow: 0 0 90px rgba(242, 197, 90, 0.95), 0 0 180px rgba(242, 197, 90, 0.44);
+  }
+}
+
+.gold-glow {
+  animation: goldglow 5.5s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Clip Path button styles */
+.clip-btn {
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.clip-btn-sm {
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}

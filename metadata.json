@@ -1,0 +1,6 @@
+{
+  "name": "Echoes of Raavos",
+  "description": "An immersive interactive saga showcase for the epic fantasy series Echoes of Raavos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
